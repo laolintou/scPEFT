@@ -11,7 +11,7 @@ conda env create -f environment.yaml
 ## Get Started
 ### native 
 ```
-python Tutorial_Reference_Mapping.py
+python ./tutorials/Tutorial_Reference_Mapping.py
 ```
 ### Command Line Arguments
 
@@ -19,12 +19,12 @@ python Tutorial_Reference_Mapping.py
 ### all finetune
 #### train & test
 ```
-python full_finetune.py
+python ./tutorials/full_finetune.py
 ```
 ### finetune classifier
 #### train & test
 ```
-python finetune_classifier.py
+python ./tutorials/finetune_classifier.py
 ```
 ### Gene token prompt
 #### train & test
