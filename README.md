@@ -74,13 +74,13 @@ XX cell type         -         -          -          -           -
              macro avg         -          -          -           -
           weighted avg         -          -          -           -
 ```
-Accuracy: weighted Accuracy based on number of each cell type
+Weighted Accuracy: weighted Accuracy based on number of each cell type
 
-Precision: weighted Precision based on number of each cell type
+Weighted Precision: weighted Precision based on number of each cell type
 
-Recall: weighted Recall based on number of each cell type
+Weighted Recall: weighted Recall based on number of each cell type
 
-Weighted F1: weighted Recall based on number of each cell type
+Weighted F1: weighted F1 score based on number of each cell type
 
 
 ## Built With
