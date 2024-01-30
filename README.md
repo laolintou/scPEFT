@@ -1,16 +1,27 @@
 # scPEFT
 This is the official repository for scPEFT: Parameter-Efficient Fine-Tuning Enhances Adaptation of Single Cell Large Language Model for Cell Type Identification
+
 ## A Quick Overview
 ![overview](IMG/overview.png)
 
 ## Requirements
-Download model checkpoint: [scGPT_human](https://drive.google.com/drive/folders/1oWh_-ZRdhtoGQ2Fw24HP41FgLoomVo-y). and put it at ./scGPT_human
+Download model checkpoint: [scGPT_human](https://drive.google.com/drive/folders/1oWh_-ZRdhtoGQ2Fw24HP41FgLoomVo-y) and put it at ./scGPT_human
 
-1.``` git clone https://github.com/laolintou/scPEFT.git ```
+1. Clone the repository:
+    ```shell
+    git clone https://github.com/laolintou/scPEFT.git
+    ```
 
-2. ```cd scPEFT-main``` and run ```conda env create -f environment.yaml```
+2. Navigate to the project directory and create a conda environment:
+    ```shell
+    cd scPEFT
+    conda env create -f environment.yaml
+    ```
 
-3. Activate the conda environment ```conda activate scGPT```
+3. Activate the conda environment:
+    ```shell
+    conda activate scGPT
+    ```
 
 ## Data preparation
 All data used in this study are publicly available.
