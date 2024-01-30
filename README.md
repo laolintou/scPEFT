@@ -1,5 +1,7 @@
 # Parameter-Efficient Fine-Tuning Enhances Adaptation of Single Cell Large Language Model for Cell Type Identification
 ## Overview
+![overview](IMG/overview.png)
+
 ## Requirements
 
 ## Installation
