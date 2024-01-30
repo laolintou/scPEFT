@@ -6,9 +6,9 @@
 ## Requirements
 Download model checkpoint: [scGPT_human](https://drive.google.com/drive/folders/1oWh_-ZRdhtoGQ2Fw24HP41FgLoomVo-y). and put it at ./scGPT_human
 
-1.``` git clone https://github.com/laolintou/scPEFT.git ```
-2. ```cd scPEFT-main``` and run ```conda env create -f environment.yaml```
-3.Activate the conda environment ```conda activate scGPT```
+>1.``` git clone https://github.com/laolintou/scPEFT.git ```
+>2. ```cd scPEFT-main``` and run ```conda env create -f environment.yaml```
+>3.Activate the conda environment ```conda activate scGPT```
 
 ## Get Started
 Firstly，enter folder tutorials  ```cd scPEFT-main/tutorials```
