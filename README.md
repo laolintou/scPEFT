@@ -16,7 +16,7 @@ cd /mnt/Data1/23zxy/Code/scPEFT-main/tutorials
 
 ### native 
 ```
-python ./tutorials/Tutorial_Reference_Mapping.py --data_name "ms"
+python ./tutorials/Tutorial_Reference_Mapping.py --data_name "ms" --use_prompt False
 ```
 ### Command Line Arguments
 
@@ -24,33 +24,33 @@ python ./tutorials/Tutorial_Reference_Mapping.py --data_name "ms"
 ### all finetune
 #### train & test
 ```
-python full_finetune.py --data_name "ms" --prompt_type "finetune"
+python full_finetune.py --data_name "ms" --prompt_type "finetune" --use_prompt False
 
 ```
 ### finetune classifier
 #### train & test
 ```
-python finetune_classifier.py --data_name "ms" --pr
+python finetune_classifier.py --data_name "ms" --use_prompt False
 ```
 ### Gene token prompt
 #### train & test
 ```
-python gene_token_prompt.py --data_name "ms" --prompt_type "finetune"
+python gene_token_prompt.py --data_name "ms" --prompt_type "Gene_token_prompt" --use_prompt True
 ```
 ### Gene encoder prompt
 #### train & test
 ```
-python ./tutorials/gene_encoder_prompt.py
+python ./tutorials/gene_encoder_prompt.py --data_name "ms" --prompt_type "Gene_encoder_prompt" --use_prompt True
 ```
 ### prefix prompt
 #### train & test
 ```
-python ./tutorials/prefix_prompt.py
+python ./tutorials/prefix_prompt.py --data_name "ms" --prompt_type "prefix_prompt" --use_prompt True
 ```
 ### LoRA prompt
 #### train & test
 ```
-python ./tutorials/lora.py
+python ./tutorials/lora.py --data_name "ms" --prompt_type "LoRA" --use_prompt True
 ```
 ### Command Line Arguments
 ## Data preparation
