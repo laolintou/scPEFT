@@ -2,7 +2,7 @@
 This is the official repository for scPEFT: Parameter-Efficient Fine-Tuning Enhances Adaptation of Single Cell Large Language Model for Cell Type Identification
 
 ## A Quick Overview
-![overview](IMG/overview.png)
+![overview](IMG/overview.jpg)
 
 ## Requirements
 Download model checkpoint: [scGPT_human](https://drive.google.com/drive/folders/1oWh_-ZRdhtoGQ2Fw24HP41FgLoomVo-y) and put it at ./scGPT_human
@@ -96,5 +96,8 @@ Weighted F1: weighted F1 score based on number of each cell type
 
 
 ## Built With
+
 [pytorch](https://pytorch.org/)
+
+[scGPT](https://github.com/bowang-lab/scGPT)
 ## Citation
