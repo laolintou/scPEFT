@@ -11,9 +11,7 @@ Download model checkpoint: [scGPT_human](https://drive.google.com/drive/folders/
 3.Activate the conda environment ```conda activate scGPT```
 
 ## Get Started
-enter /scPEFT-main/
-cd tutorials
-
+Firstly，enter folder tutorials  ```cd scPEFT-main/tutorials```
 
 ### native 
 ```
