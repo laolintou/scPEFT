@@ -11,7 +11,7 @@ conda env create -f environment.yaml
 ## Get Started
 ### native 
 ```
-python train.py
+python Tutorial_Reference_Mapping.py
 ```
 ### Command Line Arguments
 
@@ -19,12 +19,12 @@ python train.py
 ### all finetune
 #### train & test
 ```
-python train.py
+python full_finetune.py
 ```
 ### finetune classifier
 #### train & test
 ```
-python train.py
+python finetune_classifier.py
 ```
 ### Gene token prompt
 #### train & test
