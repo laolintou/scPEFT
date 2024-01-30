@@ -87,7 +87,7 @@ hyperparameter_defaults = dict(
     DSBN = False,  # Domain-spec batchnorm
     data_path=args.data_path,
     use_prompt=args.use_prompt,
-    prompt_type=args.prompt_type,  # encoder-prompt、prefix-prompt、head-prompt、condition-prompt、finetune、LoRA
+    prompt_type=args.prompt_type,  # Gene_encoder_prompt、prefix_prompt、Gene_token_prompt、condition-prompt、finetune、LoRA
     num_tokens=64,
     n_layers_conf=[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],  # token
     mlp_adapter_conf=args.space_conf,
@@ -682,16 +682,13 @@ if config.use_prompt and config.prompt_type == 'LoRA':
 for name, para in model.named_parameters():
     if config.use_prompt:
 
-        if config.prompt_type == 'prefix-prompt' and 'prompt_embeddings' in name:
+        if config.prompt_type == 'prefix_prompt' and 'prompt_embeddings' in name:
             para.requires_grad = True
 
-        elif config.prompt_type == 'encoder-prompt' and 'Adapter' in name:
+        elif config.prompt_type == 'Gene_encoder_prompt' and 'Adapter' in name:
             para.requires_grad = True
 
-        elif config.prompt_type == 'head-prompt' and 'Adapter' in name:
-            para.requires_grad = True
-
-        elif config.prompt_type == 'condition-prompt' and 'encoder.prompt_embeddings' in name:
+        elif config.prompt_type == 'Gene_token_prompt' and 'Adapter' in name:
             para.requires_grad = True
 
         elif 'cls_decoder' in name:
