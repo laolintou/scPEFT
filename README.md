@@ -4,7 +4,7 @@
 ![overview](IMG/overview.png)
 
 ## Requirements
-Download model checkpoint: [scGPT_human]((https://drive.google.com/drive/folders/1oWh_-ZRdhtoGQ2Fw24HP41FgLoomVo-y)). and put it at ./scGPT/
+Download model checkpoint: [scGPT_human](https://drive.google.com/drive/folders/1oWh_-ZRdhtoGQ2Fw24HP41FgLoomVo-y). and put it at ./scGPT/
 environment.yaml
 conda env create -f environment.yaml
 ## Installation
