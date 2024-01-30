@@ -1,5 +1,5 @@
 # scPEFT
-
+This is the official repository for scPEFT Parameter-Efficient Fine-Tuning Enhances Adaptation of Single Cell Large Language Model for Cell Type Identification
 ## A Quick Overview
 ![overview](IMG/overview.png)
 
