@@ -10,10 +10,22 @@ conda env create -f environment.yaml
 ## Installation
 ## Get Started
 ### native 
+```
+python train.py
+```
+### Command Line Arguments
+
+### Result Output Format
 ### all finetune
 #### train & test
+```
+python train.py
+```
 ### finetune classifier
 #### train & test
+```
+python train.py
+```
 ### Gene token prompt
 #### train & test
 python ./tutorials/gene_token_prompt.py
