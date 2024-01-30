@@ -8,10 +8,10 @@ Download model checkpoint: [scGPT_human](https://drive.google.com/drive/folders/
 
 1.``` git clone https://github.com/laolintou/scPEFT.git ```
 
-
 2. ```cd scPEFT-main``` and run ```conda env create -f environment.yaml```
 
 3.Activate the conda environment ```conda activate scGPT```
+
 ## Get Started
 ### native 
 ```
@@ -54,10 +54,7 @@ python ./tutorials/lora.py
 ## Data preparation
 All data used in this study are publicly available.
 
-The published Zheng68k dataset can be download from [Zheng68k](https://support.10xgenomics.com/single-cell-gene-expression/datasets(SRP073767))
-The NSCLC dataset can be download from [NSCLC](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE179994)
-The COVID-19 dataset can be download from [COVID-19](https://figshare.com/articles/dataset/seu_obj_h5ad/16922467/1)
-MS dataset can be download from [M.S.]( https://github.com/bowang-lab/scGPT/tree/main/data/)
+The published Zheng68k dataset can be download from [Zheng68k](https://support.10xgenomics.com/single-cell-gene-expression/datasets(SRP073767)).The NSCLC dataset can be download from [NSCLC](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE179994).The COVID-19 dataset can be download from [COVID-19](https://figshare.com/articles/dataset/seu_obj_h5ad/16922467/1).The MS dataset can be download from [M.S.]( https://github.com/bowang-lab/scGPT/tree/main/data/)
 ### Data structure
 
 ## Built With
