@@ -1206,10 +1206,9 @@ def test(model: nn.Module, adata: DataLoader) -> float:
     recall = recall_score(celltypes_labels, predictions, average="weighted")
 
     logger.info(
-        f"Accuracy: {balanced_accuracy:.3f}, Precision: {precision:.3f}, Recall: {recall:.3f}, "
-        f"Weighted F1: {weighted_f1:.3f}"
+        f"weighted Accuracy: {balanced_accuracy:.3f}, weighted Precision: {precision:.3f}, weighted Recall: {recall:.3f}, "
+        f"weighted_f1 F1: {weighted_f1:.3f}"
     )
-
     results = {
         "test/accuracy": balanced_accuracy,
         "test/precision": precision,
