@@ -5,6 +5,7 @@ import os
 from pathlib import Path
 import shutil
 import sys
+import argparse
 import time
 import traceback
 from typing import List, Tuple, Dict, Union, Optional
@@ -50,14 +51,21 @@ sc.set_figure_params(figsize=(6, 6))
 os.environ["KMP_WARNINGS"] = "off"
 warnings.filterwarnings('ignore')
 
-
+parser = argparse.ArgumentParser()
+parser.add_argument("--data_name", type=str, default='ms',help='dataset name.')
+parser.add_argument("--data_path", type=str, default='../data', help='Path of data for predicting.')
+parser.add_argument("--prompt_type", type=str, default='head',help='head/encoder/condition/lora')
+parser.add_argument("--space_conf", type=str, default=[1,1,1,1,1,1],help='encoder space adapter list')
+parser.add_argument("--mlp_conf", type=str, default=[1,1,1,1,1,1],help='encoder mlp adapter list')
+parser.add_argument("--epoch", type=int, default=100, help='Number of epochs.')
+args = parser.parse_args()
 hyperparameter_defaults = dict(
     seed=0,
-    dataset_name="COVID",
+    dataset_name=args.data_name,
     do_train=True,
-    load_model="/media/fei/Data/gmy/scGPT-data/scGPT_human",
+    load_model="../scGPT_human",
     mask_ratio=0.0,
-    epochs=100,
+    epochs=args.epoch,
     n_bins=51,
     MVC=False, # Masked value prediction for cell embedding
     ecs_thres=0.0, # Elastic cell similarity objective, 0.0 to 1.0, 0.0 to disable
@@ -76,13 +84,13 @@ hyperparameter_defaults = dict(
     include_zero_gene = False,
     freeze = False, #freeze
     DSBN = False,  # Domain-spec batchnorm
-    data_path='/media/fei/Data/frx/scGPT/tutorials_py/data/scGPT_Data_Top2000_only_ensembl_id/',
+    data_path=args.data_path,
     use_prompt=True,
-    prompt_type='encoder-prompt',  # encoder-prompt、prefix-prompt、head-prompt、condition-prompt、finetune、LoRA
+    prompt_type=args.prompt_type,  # encoder-prompt、prefix-prompt、head-prompt、condition-prompt、finetune、LoRA
     num_tokens=64,
     n_layers_conf=[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],  # token
-    mlp_adapter_conf=[1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0],
-    space_adapter_conf=[1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0],
+    mlp_adapter_conf=args.space_conf,
+    space_adapter_conf=args.mlp_conf,
 )
 #%%
 run = wandb.init(

@@ -1,3 +1,4 @@
+import argparse
 import sys
 from pathlib import Path
 
@@ -36,17 +37,17 @@ warnings.filterwarnings("ignore", category=ResourceWarning)
 
 ## Referrence mapping using a customized reference dataset
 
+parser = argparse.ArgumentParser()
+parser.add_argument("--data_name", type=str, default='ms',help='dataset name.')
+args = parser.parse_args()
 # %%
-data_name = 'COVID'
-model_dir = Path("/mnt/Data1/gmy/scGPT-data/scGPT_human")
-adata = sc.read_h5ad(f"/mnt/Data5/gmy/data/scGPT_Data_Top2000_only_ensembl_id/{data_name}/{data_name}_train.h5ad")
+data_name = args.data_name
+model_dir = Path("../scGPT_human")
+adata = sc.read_h5ad(f"../data/{data_name}/{data_name}_train.h5ad")
 
 if data_name == 'ms':
     data_is_raw = False
     celltype_key = 'celltype'
-elif data_name == 'Mye':
-    data_is_raw = False
-    celltype_key = 'cell_type'
 elif data_name == 'zheng68k':
     data_is_raw = False
     celltype_key = 'celltype'
@@ -56,9 +57,6 @@ elif data_name == 'COVID':
 elif data_name == 'NSCLC':
     data_is_raw = True
     celltype_key = 'cell_type'
-elif data_name == 'mouse':
-    data_is_raw = True
-    celltype_key = 'celltype'
 
 gene_col = "index"
 
@@ -93,7 +91,7 @@ ref_embed_adata = scg.tasks.embed_data(
     return_new_adata=True,
 )
 
-test_adata = sc.read_h5ad(f"/mnt/Data5/gmy/data/scGPT_Data_Top2000_only_ensembl_id/{data_name}/{data_name}_test.h5ad")
+test_adata = sc.read_h5ad(f"../data/{data_name}/{data_name}_test.h5ad")
 if data_is_raw:
     preprocessor(test_adata, batch_key=None)
     test_adata.X = test_adata.layers['X_log1p']

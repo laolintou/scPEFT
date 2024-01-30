@@ -32,7 +32,7 @@ from torchtext._torchtext import (
     Vocab as VocabPybind,
 )
 from sklearn.metrics import confusion_matrix
-
+import argparse
 sys.path.insert(0, "../")
 import scgpt as scg
 from scgpt.model import TransformerModel, AdversarialDiscriminator
@@ -53,32 +53,46 @@ warnings.filterwarnings('ignore')
 #%% md
 ## Step1: Specify hyper-parameter setup for cell-type annotation taskListed below are some hyper-parameter recommendations for the cell-type task. Note that the CLS objective is on to facilitate cell-type classification.
 #%%
+parser = argparse.ArgumentParser()
+parser.add_argument("--data_name", type=str, default='ms',help='dataset name.')
+parser.add_argument("--data_path", type=str, default='../data', help='Path of data for predicting.')
+parser.add_argument("--prompt_type", type=str, default='head',help='head/encoder/condition/lora')
+parser.add_argument("--space_conf", type=str, default=[1,1,1,1,1,1],help='encoder space adapter list')
+parser.add_argument("--mlp_conf", type=str, default=[1,1,1,1,1,1],help='encoder mlp adapter list')
+parser.add_argument("--epoch", type=int, default=100, help='Number of epochs.')
+args = parser.parse_args()
 hyperparameter_defaults = dict(
     seed=0,
-    dataset_name="Mouse_CD8TIL_Tony",
+    dataset_name=args.data_name,
     do_train=True,
-    load_model="/media/fei/Data/gmy/scGPT-data/scGPT_human",
-    data_path='/media/fei/Data/frx/scGPT/tutorials_py/data/scGPT_Data_Top2000_only_ensembl_id/',
+    load_model="../scGPT_human",
     mask_ratio=0.0,
-    epochs=100,
+    epochs=args.epoch,
     n_bins=51,
     MVC=False, # Masked value prediction for cell embedding
     ecs_thres=0.0, # Elastic cell similarity objective, 0.0 to 1.0, 0.0 to disable
     dab_weight=0.0,
     lr=1e-4,
-    batch_size=128,
+    batch_size=200,
     layer_size=128,
     nlayers=4,  # number of nn.TransformerEncoderLayer in nn.TransformerEncoder
     nhead=4,  # number of heads in nn.MultiheadAttention
     dropout=0.2,  # dropout probability
     schedule_ratio=0.9,  # ratio of epochs for learning rate schedule
     save_eval_interval=5,
-    fast_transformer=False,
+    fast_transformer= False,  #是否使用flash attention
     pre_norm=False,
     amp=True,  # Automatic Mixed Precision
     include_zero_gene = False,
     freeze = False, #freeze
     DSBN = False,  # Domain-spec batchnorm
+    data_path=args.data_path,
+    use_prompt=True,
+    prompt_type=args.prompt_type,  # encoder-prompt、prefix-prompt、head-prompt、condition-prompt、finetune、LoRA
+    num_tokens=64,
+    n_layers_conf=[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],  # token
+    mlp_adapter_conf=args.space_conf,
+    space_adapter_conf=args.mlp_conf,
 )
 
 run = wandb.init(
