@@ -816,7 +816,7 @@ class ContinuousValueEncoder(nn.Module):
         self.use_prompt = use_prompt
         self.prompt_type = prompt_type
         self.num_tokens = num_tokens
-        if self.use_prompt and self.prompt_type == 'head-prompt':
+        if self.use_prompt and self.prompt_type == 'Gene_token_prompt':
             self.Space_Adapter = Adapter(d_model)
 
 
@@ -834,7 +834,7 @@ class ContinuousValueEncoder(nn.Module):
         x = self.activation(self.linear1(x))
         x = self.linear2(x)
         x = self.norm(x)
-        if self.use_prompt and self.prompt_type == 'head-prompt':
+        if self.use_prompt and self.prompt_type == 'Gene_token_prompt':
             x = self.Space_Adapter(x)
         return self.dropout(x)
 
