@@ -56,6 +56,7 @@ The published Zheng68k dataset can be download from [Zheng68k](https://support.1
 ### Data structure
 
 ```
+[./data/]
 |__[COVID]/
 |    |__COVID_test.h5ad
 |    |__COVID_train.h5ad
