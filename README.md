@@ -63,7 +63,7 @@ use_prompt：whether use prompt or not
 
 ## Result Output Format
 ```
-Accuracy: XXX, Precision: XXX, Recall: XXX, Weighted F1: XXX
+Weighted Accuracy: XXX, Weighted Precision: XXX, Weighted Recall: XXX, Weighted F1: XXX
 -------------------------------------------------------------
                 accuracy   precision    recall    f1-score    support
 XX cell type         -         -          -          -           -
@@ -74,7 +74,8 @@ XX cell type         -         -          -          -           -
              macro avg         -          -          -           -
           weighted avg         -          -          -           -
 ```
-Weighted Accuracy: weighted Accuracy based on number of each cell type
+Weighted Accuracy: The balanced accuracy in binary and multiclass classification problems to
+    deal with imbalanced datasets.
 
 Weighted Precision: weighted Precision based on number of each cell type
 
