@@ -197,7 +197,7 @@ class TransformerEncoder(Module):
                  space_adapter_conf = [],
                  batch_size = 2,
                  use_prompt = False,
-                 prompt_type = 'prefix-prompt',
+                 prompt_type = 'prefix_prompt',
                  num_tokens = 1,
                  ):
         super().__init__()
@@ -536,13 +536,13 @@ class TransformerEncoderLayer(Module):
         self.dropout1 = Dropout(dropout)
         self.dropout2 = Dropout(dropout)
 
-        if self.use_prompt and self.prompt_type=='encoder-prompt':
+        if self.use_prompt and self.prompt_type=='Gene_encoder_prompt':
             if self.space_adapter_conf[self.block_number] == 1:
                 self.Space_Adapter = Adapter(self.dim)
             if self.mlp_adapter_conf[self.block_number] == 1:
                 self.MLP_Adapter = Adapter(self.dim, skip_connect=False)
 
-        if self.use_prompt and self.prompt_type == 'prefix-prompt':
+        if self.use_prompt and self.prompt_type == 'prefix_prompt':
             self.first = self.n_layers_conf.index(1)
             if self.n_layers_conf[self.block_number]==1:
                 self.prompt_embeddings = nn.Parameter(torch.zeros(1, self.num_tokens, self.emb_dim))
@@ -677,7 +677,7 @@ class TransformerEncoderLayer(Module):
 
         x = src
 
-        if self.use_prompt and self.prompt_type == 'encoder-prompt':
+        if self.use_prompt and self.prompt_type == 'Gene_encoder_prompt':
 
             if self.norm_first:
                 x1 = self._sa_block(self.norm1(x), src_mask, src_key_padding_mask)
@@ -701,7 +701,7 @@ class TransformerEncoderLayer(Module):
                     x = x_mlp
 
 
-        elif self.use_prompt and self.prompt_type == 'prefix-prompt':
+        elif self.use_prompt and self.prompt_type == 'prefix_prompt':
 
             if self.n_layers_conf[self.block_number]==1:
                 x = self.forward_deep_prompt(x)
