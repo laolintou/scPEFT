@@ -11,9 +11,12 @@ Download model checkpoint: [scGPT_human](https://drive.google.com/drive/folders/
 3.Activate the conda environment ```conda activate scGPT```
 
 ## Get Started
+cd /mnt/Data1/23zxy/Code/scPEFT-main/tutorials
+
+
 ### native 
 ```
-python ./tutorials/Tutorial_Reference_Mapping.py
+python ./tutorials/Tutorial_Reference_Mapping.py --data_name "ms"
 ```
 ### Command Line Arguments
 
@@ -21,17 +24,18 @@ python ./tutorials/Tutorial_Reference_Mapping.py
 ### all finetune
 #### train & test
 ```
-python ./tutorials/full_finetune.py
+python full_finetune.py --data_name "ms" --prompt_type "finetune"
+
 ```
 ### finetune classifier
 #### train & test
 ```
-python ./tutorials/finetune_classifier.py
+python finetune_classifier.py --data_name "ms" --pr
 ```
 ### Gene token prompt
 #### train & test
 ```
-python ./tutorials/gene_token_prompt.py
+python gene_token_prompt.py --data_name "ms" --prompt_type "finetune"
 ```
 ### Gene encoder prompt
 #### train & test
