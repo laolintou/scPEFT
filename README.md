@@ -11,7 +11,6 @@ Download model checkpoint: [scGPT_human](https://drive.google.com/drive/folders/
   2. ```cd scPEFT-main``` and run ```conda env create -f environment.yaml```
 
   3.Activate the conda environment ```conda activate scGPT```
-## Installation
 ## Get Started
 ### native 
 ```
