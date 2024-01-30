@@ -1,12 +1,12 @@
 # Parameter-Efficient Fine-Tuning Enhances Adaptation of Single Cell Large Language Model for Cell Type Identification
-【论文相关介绍】
+
 ## A Quick Overview
 ![overview](IMG/overview.png)
 
 ## Requirements
 Download model checkpoint: [scGPT_human](https://drive.google.com/drive/folders/1oWh_-ZRdhtoGQ2Fw24HP41FgLoomVo-y). and put it at ./scGPT_human
 
-  1.``` git clone https://github.com/laolintou/scPEFT.git ```
+1.``` git clone https://github.com/laolintou/scPEFT.git ```
 
 2. ```cd scPEFT-main``` and run ```conda env create -f environment.yaml```
 
