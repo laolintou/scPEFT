@@ -55,11 +55,12 @@ warnings.filterwarnings('ignore')
 #%%
 parser = argparse.ArgumentParser()
 parser.add_argument("--data_name", type=str, default='ms',help='dataset name.')
-parser.add_argument("--data_path", type=str, default='../data', help='Path of data for predicting.')
+parser.add_argument("--data_path", type=str, default='../data/', help='Path of data for predicting.')
 parser.add_argument("--prompt_type", type=str, default='head',help='head/encoder/condition/lora')
 parser.add_argument("--space_conf", type=str, default=[1,1,1,1,1,1],help='encoder space adapter list')
 parser.add_argument("--mlp_conf", type=str, default=[1,1,1,1,1,1],help='encoder mlp adapter list')
 parser.add_argument("--epoch", type=int, default=100, help='Number of epochs.')
+parser.add_argument("--use_prompt", type=bool, default=False, help='whether use prompt or not.')
 args = parser.parse_args()
 hyperparameter_defaults = dict(
     seed=0,
@@ -73,7 +74,7 @@ hyperparameter_defaults = dict(
     ecs_thres=0.0, # Elastic cell similarity objective, 0.0 to 1.0, 0.0 to disable
     dab_weight=0.0,
     lr=1e-4,
-    batch_size=200,
+    batch_size=1,
     layer_size=128,
     nlayers=4,  # number of nn.TransformerEncoderLayer in nn.TransformerEncoder
     nhead=4,  # number of heads in nn.MultiheadAttention
@@ -87,7 +88,7 @@ hyperparameter_defaults = dict(
     freeze = False, #freeze
     DSBN = False,  # Domain-spec batchnorm
     data_path=args.data_path,
-    use_prompt=True,
+    use_prompt=args.use_prompt,
     prompt_type=args.prompt_type,  # encoder-prompt、prefix-prompt、head-prompt、condition-prompt、finetune、LoRA
     num_tokens=64,
     n_layers_conf=[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],  # token
