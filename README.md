@@ -51,6 +51,9 @@ python prefix_prompt.py --data_name "ms" --prompt_type "prefix_prompt" --use_pro
 python lora.py --data_name "ms" --prompt_type "LoRA" --use_prompt True
 ```
 ### Command Line Arguments
+data_name ：dataset name
+prompt_type：the type that you add into model
+use_prompt：whether use prompt or not
 ## Data preparation
 All data used in this study are publicly available.
 
