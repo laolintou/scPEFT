@@ -1,4 +1,4 @@
-# Parameter-Efficient Fine-Tuning Enhances Adaptation of Single Cell Large Language Model for Cell Type Identification
+# scPEFT
 
 ## A Quick Overview
 ![overview](IMG/overview.png)
@@ -74,7 +74,7 @@ XX cell type         -         -          -          -           -
              macro avg         -          -          -           -
           weighted avg         -          -          -           -
 ```
-Accuracy: weighted Accuracy based on number of each cell type,
+Accuracy: weighted Accuracy based on number of each cell type
 
 Precision: weighted Precision based on number of each cell type
 
