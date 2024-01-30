@@ -61,16 +61,23 @@ use_prompt：whether use prompt or not
 ```
 Accuracy: XXX, Precision: XXX, Recall: XXX, Weighted F1: XXX
 -------------------------------------------------------------
-                  precision    recall    f1-score    support
-XX cell type         -            -          -          -
+                accuracy   precision    recall    f1-score    support
+XX cell type         -         -          -          -           -
 ...
 ...
 
+              accuracy                               -           -
+             macro avg         -          -          -           -
+          weighted avg         -          -          -           -
 ```
-Accuracy: weighted Accuracy based on number of each cell type, 
-Precision: weighted Precision based on number of each cell type,
-Recall: weighted Recall based on number of each cell type, 
+Accuracy: weighted Accuracy based on number of each cell type,
+
+Precision: weighted Precision based on number of each cell type
+
+Recall: weighted Recall based on number of each cell type
+
 Weighted F1: weighted Recall based on number of each cell type
+
 ## Data preparation
 All data used in this study are publicly available.
 
