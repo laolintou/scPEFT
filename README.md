@@ -20,9 +20,6 @@ Firstly，enter folder tutorials  ```cd scPEFT-main/tutorials```
 ```
 python Tutorial_Reference_Mapping.py --data_name "ms"
 ```
-### Command Line Arguments
-
-### Result Output Format
 ### all finetune
 #### train & test
 ```
@@ -53,12 +50,27 @@ python prefix_prompt.py --data_name "ms" --prompt_type "prefix_prompt" --use_pro
 ```
 python lora.py --data_name "ms" --prompt_type "LoRA" --use_prompt True
 ```
-### Command Line Arguments
+## Command Line Arguments
 data_name ：dataset name
 
 prompt_type：the type that you add into model
 
 use_prompt：whether use prompt or not
+
+## Result Output Format
+```
+Accuracy: XXX, Precision: XXX, Recall: XXX, Weighted F1: XXX
+-------------------------------------------------------------
+                  precision    recall    f1-score    support
+XX cell type         -            -          -          -
+...
+...
+
+```
+Accuracy: weighted Accuracy based on number of each cell type, 
+Precision: weighted Precision based on number of each cell type,
+Recall: weighted Recall based on number of each cell type, 
+Weighted F1: weighted Recall based on number of each cell type
 ## Data preparation
 All data used in this study are publicly available.
 
