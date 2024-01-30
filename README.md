@@ -28,16 +28,24 @@ python train.py
 ```
 ### Gene token prompt
 #### train & test
+```
 python ./tutorials/gene_token_prompt.py
+```
 ### Gene encoder prompt
 #### train & test
+```
 python ./tutorials/gene_encoder_prompt.py
+```
 ### prefix prompt
 #### train & test
+```
 python ./tutorials/prefix_prompt.py
+```
 ### LoRA prompt
 #### train & test
+```
 python ./tutorials/lora.py
+```
 ### Command Line Arguments
 ## Data preparation
 ### Data structure
