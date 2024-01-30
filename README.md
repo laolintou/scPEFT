@@ -11,12 +11,13 @@ Download model checkpoint: [scGPT_human](https://drive.google.com/drive/folders/
 3.Activate the conda environment ```conda activate scGPT```
 
 ## Get Started
-cd /mnt/Data1/23zxy/Code/scPEFT-main/tutorials
+enter /scPEFT-main/
+cd tutorials
 
 
 ### native 
 ```
-python ./tutorials/Tutorial_Reference_Mapping.py --data_name "ms" --use_prompt False
+python Tutorial_Reference_Mapping.py --data_name "ms"
 ```
 ### Command Line Arguments
 
@@ -25,7 +26,6 @@ python ./tutorials/Tutorial_Reference_Mapping.py --data_name "ms" --use_prompt F
 #### train & test
 ```
 python full_finetune.py --data_name "ms" --prompt_type "finetune" --use_prompt False
-
 ```
 ### finetune classifier
 #### train & test
@@ -40,17 +40,17 @@ python gene_token_prompt.py --data_name "ms" --prompt_type "Gene_token_prompt" -
 ### Gene encoder prompt
 #### train & test
 ```
-python ./tutorials/gene_encoder_prompt.py --data_name "ms" --prompt_type "Gene_encoder_prompt" --use_prompt True
+python gene_encoder_prompt.py --data_name "ms" --prompt_type "Gene_encoder_prompt" --use_prompt True
 ```
 ### prefix prompt
 #### train & test
 ```
-python ./tutorials/prefix_prompt.py --data_name "ms" --prompt_type "prefix_prompt" --use_prompt True
+python prefix_prompt.py --data_name "ms" --prompt_type "prefix_prompt" --use_prompt True
 ```
 ### LoRA prompt
 #### train & test
 ```
-python ./tutorials/lora.py --data_name "ms" --prompt_type "LoRA" --use_prompt True
+python lora.py --data_name "ms" --prompt_type "LoRA" --use_prompt True
 ```
 ### Command Line Arguments
 ## Data preparation
