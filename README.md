@@ -28,10 +28,11 @@ All data used in this study are publicly available.
 
 | Dataset                                        | Link                                                                                   |
 |------------------------------------------------|-----------------------------------------------------------------------------------------------|
+| MS                                             | [M.S.](https://github.com/bowang-lab/scGPT/tree/main/data/)                                   |
 | Zheng68k                                       | [Zheng68k](https://support.10xgenomics.com/single-cell-gene-expression/datasets(SRP073767))  |
 | NSCLC                                          | [NSCLC](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE179994)                           |
 | COVID-19                                       | [COVID-19](https://figshare.com/articles/dataset/seu_obj_h5ad/16922467/1)                      |
-| MS                                             | [M.S.](https://github.com/bowang-lab/scGPT/tree/main/data/)                                   |
+
 
 
 ## Get Started
