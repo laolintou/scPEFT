@@ -45,32 +45,32 @@ python Tutorial_Reference_Mapping.py --data_name "ms"
 ### full finetune
 #### train & test
 ```
-python full_finetune.py --data_name "ms" --prompt_type "finetune" --use_prompt False
+python Tutorial_Annotation_Finetune.py --data_name "ms" --prompt_type "finetune" --use_prompt False
 ```
 ### finetune classifier
 #### train & test
 ```
-python finetune_classifier.py --data_name "ms" --use_prompt False
+python Tutorial_Annotation_Finetune.py --data_name "ms" --use_prompt False
 ```
 ### Gene token prompt
 #### train & test
 ```
-python gene_token_prompt.py --data_name "ms" --prompt_type "Gene_token_prompt" --use_prompt True
+python Tutorial_Annotation_Prompt.py --data_name "ms" --prompt_type "Gene_token_prompt" --use_prompt True
 ```
 ### Gene encoder prompt
 #### train & test
 ```
-python gene_encoder_prompt.py --data_name "ms" --prompt_type "Gene_encoder_prompt" --use_prompt True
+python Tutorial_Annotation_Prompt.py --data_name "ms" --prompt_type "Gene_encoder_prompt" --use_prompt True
 ```
 ### prefix prompt
 #### train & test
 ```
-python prefix_prompt.py --data_name "ms" --prompt_type "prefix_prompt" --use_prompt True
+python Tutorial_Annotation_Prompt.py --data_name "ms" --prompt_type "prefix_prompt" --use_prompt True
 ```
 ### LoRA prompt
 #### train & test
 ```
-python lora.py --data_name "ms" --prompt_type "LoRA" --use_prompt True
+python Tutorial_Annotation_Prompt.py --data_name "ms" --prompt_type "LoRA" --use_prompt True
 ```
 ## Command Line Arguments
 data_name ：dataset name
