@@ -661,32 +661,9 @@ if config.use_prompt and config.prompt_type == 'LoRA':
     lora.mark_only_lora_as_trainable(model,bias='lora_only')
 
 for name, para in model.named_parameters():
-    if config.use_prompt:
+    if 'cls_decoder' in name:
+        para.requires_grad = True
 
-        if config.prompt_type == 'prefix-prompt' and 'prompt_embeddings' in name:
-            para.requires_grad = True
-
-        elif config.prompt_type == 'encoder-prompt' and 'Adapter' in name:
-            para.requires_grad = True
-
-        elif config.prompt_type == 'head-prompt' and 'Adapter' in name:
-            para.requires_grad = True
-
-        elif config.prompt_type == 'condition-prompt' and 'encoder.prompt_embeddings' in name:
-            para.requires_grad = True
-
-        elif 'rank_encoder' in name:
-            para.requires_grad = True
-
-        elif 'cls_decoder' in name:
-            para.requires_grad = True
-
-        else:
-            para.requires_grad = False
-
-    else:
-
-        para.requires_grad = True  # finetune
 
 post_freeze_param_count = sum(dict((p.data_ptr(), p.numel()) for p in model.parameters() if p.requires_grad).values())
 
