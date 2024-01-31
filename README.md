@@ -45,12 +45,12 @@ python Tutorial_Reference_Mapping.py --data_name "ms"
 ### full finetune
 #### train & test
 ```
-python Tutorial_Annotation_Finetune.py --data_name "ms" --prompt_type "finetune" --use_prompt False
+python Tutorial_Annotation_Finetune.py --data_name "ms" --finetune_type "Full_finetune" --use_prompt False
 ```
 ### finetune classifier
 #### train & test
 ```
-python Tutorial_Annotation_Finetune.py --data_name "ms" --use_prompt False
+python Tutorial_Annotation_Finetune.py --data_name "ms" --finetune_type "Cls_finetune" --use_prompt False
 ```
 ### Gene token prompt
 #### train & test
