@@ -54,7 +54,7 @@ warnings.filterwarnings('ignore')
 ## Step1: Specify hyper-parameter setup for cell-type annotation taskListed below are some hyper-parameter recommendations for the cell-type task. Note that the CLS objective is on to facilitate cell-type classification.
 #%%
 parser = argparse.ArgumentParser()
-parser.add_argument("--data_name", type=str, default='ms',help='dataset name.')
+parser.add_argument("--data_name", type=str, default='ms',help='ms/zheng68k/COVID/NSCLC')
 parser.add_argument("--data_path", type=str, default='../data/', help='Path of data for predicting.')
 parser.add_argument("--finetune_type", type=str, default='Cls_finetune',help='Full_finetune/Cls_finetune')
 parser.add_argument("--space_conf", type=str, default=[1,1,1,1,1,1,0,0,0,0,0,0],help='encoder space adapter list')
