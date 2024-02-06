@@ -108,3 +108,14 @@ Weighted F1: weighted F1 score based on number of each cell type
 
 [scGPT](https://github.com/bowang-lab/scGPT)
 ## Citation
+```
+@article {He2024.01.27.577455,
+	author = {Fei He and Ruixin Fei and Mingyue Gao and Li Su and Xinyu Zhang and Dong Xu},
+	title = {Parameter-Efficient Fine-Tuning Enhances Adaptation of Single Cell Large Language Model for Cell Type Identification},
+	year = {2024},
+	doi = {10.1101/2024.01.27.577455},
+	publisher = {Cold Spring Harbor Laboratory},
+	URL = {https://www.biorxiv.org/content/early/2024/01/30/2024.01.27.577455},
+	journal = {bioRxiv}
+}
+```
