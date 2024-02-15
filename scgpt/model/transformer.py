@@ -586,7 +586,7 @@ class TransformerEncoderLayer(Module):
                     x = self.norm2(x3 + x2)
 
 
-        elif self.use_prompt and self.prompt_type == 'prefix-prompt':
+        elif self.use_prompt and self.prompt_type == 'prefix_prompt':
 
             if self.n_layers_conf[self.block_number]==1:
                 x = self.forward_deep_prompt(x)
