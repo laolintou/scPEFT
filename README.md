@@ -65,7 +65,7 @@ python Tutorial_Annotation_Prompt.py --data_name "ms" --prompt_type "Gene_encode
 ### prefix prompt
 #### train & test
 ```
-python Tutorial_Annotation_Prompt.py --data_name "ms" --prompt_type "prefix_prompt" --use_prompt True
+python Tutorial_Annotation_Prompt.py --data_name "ms" --prompt_type "prefix-prompt" --use_prompt True
 ```
 ### LoRA prompt
 #### train & test
