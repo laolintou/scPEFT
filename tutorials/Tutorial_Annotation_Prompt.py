@@ -54,7 +54,7 @@ warnings.filterwarnings('ignore')
 parser = argparse.ArgumentParser()
 parser.add_argument("--data_name", type=str, default='ms',help='ms/zheng68k/COVID/NSCLC')
 parser.add_argument("--data_path", type=str, default='../data/', help='Path of data for predicting.')
-parser.add_argument("--prompt_type", type=str, default='prefix_prompt',help='prefix_prompt/Gene_encoder_prompt/Gene_token_prompt/LoRA')
+parser.add_argument("--prompt-type", type=str, default='prefix_prompt',help='prefix_prompt/Gene_encoder_prompt/Gene_token_prompt/LoRA')
 parser.add_argument("--space_conf", type=str, default=[1,1,1,1,1,1,0,0,0,0,0,0],help='encoder space adapter list')
 parser.add_argument("--mlp_conf", type=str, default=[1,1,1,1,1,1,0,0,0,0,0,0],help='encoder mlp adapter list')
 parser.add_argument("--epoch", type=int, default=100, help='Number of epochs.')
@@ -72,7 +72,7 @@ hyperparameter_defaults = dict(
     ecs_thres=0.0, # Elastic cell similarity objective, 0.0 to 1.0, 0.0 to disable
     dab_weight=0.0,
     lr=1e-4,
-    batch_size=10,
+    batch_size=1,
     layer_size=128,
     nlayers=4,  # number of nn.TransformerEncoderLayer in nn.TransformerEncoder
     nhead=4,  # number of heads in nn.MultiheadAttention
@@ -87,7 +87,7 @@ hyperparameter_defaults = dict(
     DSBN = False,  # Domain-spec batchnorm
     data_path=args.data_path,
     use_prompt=args.use_prompt,
-    prompt_type=args.prompt_type,  # encoder-prompt、prefix-prompt、head-prompt、condition-prompt、finetune、LoRA
+    prompt_type=args.prompt_type,  # prefix_prompt/Gene_encoder_prompt/Gene_token_prompt/LoRA
     num_tokens=64,
     n_layers_conf=[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],  # token
     mlp_adapter_conf=args.space_conf,
@@ -632,6 +632,7 @@ for name, para in model.named_parameters():
         para.requires_grad = True
     if 'Adapter' in name:
         para.requires_grad = True
+post_freeze_param_count = sum(dict((p.data_ptr(), p.numel()) for p in model.parameters() if p.requires_grad ).values())
 if prompt_type == "LoRA":
     def lora_bias_trainable(model: nn.Module, bias: str = 'none') -> None:
         if bias == 'none':
@@ -734,6 +735,10 @@ def train(model: nn.Module, loader: DataLoader) -> None:
         celltype_labels = batch_data["celltype_labels"].to(device)
 
         src_key_padding_mask = input_gene_ids.eq(vocab[pad_token])
+        if use_prompt and prompt_type == 'prefix_prompt':
+            bool_tensor = torch.empty((input_gene_ids.shape[0],num_tokens), dtype=torch.bool).to(device)
+            bool_tensor.fill_(src_key_padding_mask[0][0].item()).to(device)
+            src_key_padding_mask = torch.cat((bool_tensor,src_key_padding_mask),dim=1)
         with torch.cuda.amp.autocast(enabled=config.amp):
             output_dict = model(
                 input_gene_ids,
@@ -954,6 +959,10 @@ def evaluate(model: nn.Module, loader: DataLoader, return_raw: bool = False) -> 
             celltype_labels = batch_data["celltype_labels"].to(device)
 
             src_key_padding_mask = input_gene_ids.eq(vocab[pad_token])
+            if use_prompt and prompt_type == 'prefix_prompt':
+                bool_tensor = torch.empty((input_gene_ids.shape[0], num_tokens), dtype=torch.bool).to(device)
+                bool_tensor.fill_(src_key_padding_mask[0][0].item()).to(device)
+                src_key_padding_mask = torch.cat((bool_tensor, src_key_padding_mask), dim=1)
             with torch.cuda.amp.autocast(enabled=config.amp):
                 output_dict = model(
                     input_gene_ids,
@@ -1181,6 +1190,4 @@ from sklearn.metrics import classification_report
 logger.info(classification_report(labels, predictions, target_names=list(id2type.values()), digits=4))
 
 wandb.log(results)
-
-
 
