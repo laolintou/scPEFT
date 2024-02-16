@@ -193,7 +193,7 @@ DAB_separate_optim = True if DAB > 1 else False
 
 dataset_name = config.dataset_name
 data_path = config.data_path
-save_dir = Path(f"./save/ori_finetune_cls/scGPT-{dataset_name}-finetune_cls/")
+save_dir = Path(f"./save/{args.finetune_type}/scGPT-{dataset_name}-{args.finetune_type}/")
 save_dir.mkdir(parents=True, exist_ok=True)
 print(f"save to {save_dir}")
 logger = scg.logger
